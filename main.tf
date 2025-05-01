@@ -104,11 +104,11 @@ resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
 
 # Lambda Function (using deployment package from Cloud9)
 resource "aws_lambda_function" "image_processor" {
-  filename      = "lambda_python_thumbnail_deployment_package.zip" # Created in Cloud9
+  filename      = "lambda_python_thumbnail_deployment_package.zip"
   function_name = var.lambda_function_name
   role          = aws_iam_role.lambda_exec_role.arn
   handler       = "lambda_function.lambda_handler"
-  runtime       = "python3.9"  # Must match Cloud9 Python version
+  runtime       = "python3.9"
   timeout       = 30
   memory_size   = 512
 
